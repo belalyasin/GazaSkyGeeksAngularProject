@@ -1,1 +1,41 @@
-<p>userlist works!</p>
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">User Data Table</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>birthdate</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>address</th>
+            <th>actions
+              <button class="btn btn-success" routerLink="/adduser">+</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userData; let i=index;">
+            <td>{{i+1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.birthdate}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.address}}</td>
+            <td>
+              <a class="btn btn-warning btn-xs" [routerLink]="['edituser',user.id]">Edit</a>
+              <button class="btn btn-danger btn-xs" (click)="onRemove(i)">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
