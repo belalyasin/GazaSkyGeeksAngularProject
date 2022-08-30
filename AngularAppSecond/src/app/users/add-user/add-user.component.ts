@@ -121,17 +121,11 @@ export class AddUserComponent implements OnInit {
 
   onsubmit({value,valid}:{value:any,valid:boolean}){
     // console.log("Value",value,"Valied",valid)
-<<<<<<< HEAD
     if(this.Formuseradd.valid){
       this.userService.addUser(value);
       // console.log("YYY",this.Formuseradd.value)
         this.Formuseradd.reset();
     }
-=======
-  this.userService.addUser(value);
-  // console.log("YYY",this.Formuseradd.value)
-    this.Formuseradd.reset();
->>>>>>> 5961fda29ddf8b9932167775ad57c6e5cea91cdb
   }
 
 
