@@ -14,12 +14,11 @@ updateFG:FormGroup;
 data:User;
 
 constructor(private userService : UserServiceService,private router:ActivatedRoute,private route:Router) {
- this.initializeFG();
-
- var id= this.router.snapshot.paramMap.get('id');
+this.initializeFG();
+var id= this.router.snapshot.paramMap.get('id');
 
   this.updateFG.setValue({
-    id:this.userService.getUserById(id).id,
+    // id:this.userService.getUserById(id).id,
     name:this.userService.getUserById(id).name,
     birthdate:this.userService.getUserById(id).birthdate,
     email:this.userService.getUserById(id).email,
@@ -34,7 +33,7 @@ constructor(private userService : UserServiceService,private router:ActivatedRou
     ID= this.router.snapshot.paramMap.get('id');
     // ID= this.userService.getUserById(ID).id;
     obj=this.data= {
-      id:this.updateFG.value.id,
+      id:this.router.snapshot.paramMap.get('id'),
       name:this.updateFG.value.name,
       birthdate:this.updateFG.value.birthdate,
       email:this.updateFG.value.email,
@@ -50,12 +49,11 @@ constructor(private userService : UserServiceService,private router:ActivatedRou
 
   initializeFG():void{
     this.updateFG = new FormGroup({
-      id:new FormControl('',[Validators.required , Validators.minLength(1) , Validators.maxLength(6),]),
       name:new FormControl('',[Validators.required , Validators.minLength(3) , Validators.maxLength(15)]),
       birthdate:new FormControl('',[Validators.required , Validators.minLength(3) , Validators.maxLength(9)]),
       email:new FormControl('',[Validators.required , Validators.minLength(10) , Validators.maxLength(20)]),
-      phone:new FormControl('',[Validators.required , Validators.minLength(7) , Validators.maxLength(14)]),
-      address:new FormControl('',[Validators.required , Validators.minLength(3) , Validators.maxLength(20)]),
+      phone:new FormControl('',[Validators.required , Validators.minLength(7) , Validators.maxLength(15)]),
+      address:new FormControl('',[Validators.required , Validators.minLength(3) , Validators.maxLength(30)]),
     });
   }
 
@@ -63,6 +61,98 @@ constructor(private userService : UserServiceService,private router:ActivatedRou
    var id= this.router.snapshot.paramMap.get('id');
   //  console.log("ID",id);
 
+  }
+
+  isNameValid(): string{
+    const er = this.updateFG.get('name').errors?this.updateFG.get('name').errors:{}
+    const errors = Object.keys(er);
+    if(errors.length>0){
+      let errorMessage:any=[];
+      errors.forEach(error => {
+        if(error==='required'){
+          errorMessage.push("Name is Required")
+        }else if(error==='minlength'){
+          errorMessage.push("Name shuolde be at least 3")
+        }else if(error==='maxlength'){
+          errorMessage.push("Name shuolde be less than or equal 15")
+        }
+      })
+      return errorMessage.join(',')
+    }
+    return null;
+  }
+
+  isBirthdateValid(): string{
+    const er = this.updateFG.get('birthdate').errors?this.updateFG.get('birthdate').errors:{}
+    const errors = Object.keys(er);
+    if(errors.length>0){
+      let errorMessage:any=[];
+      errors.forEach(error => {
+        if(error==='required'){
+          errorMessage.push("Birthdate is Required")
+        }else if(error==='minlength'){
+          errorMessage.push("Birthdate shuolde be at least 3")
+        }else if(error==='maxlength'){
+          errorMessage.push("Birthdate shuolde be less than or equal 9")
+        }
+      })
+      return errorMessage.join(',')
+    }
+    return null;
+  }
+  isemailValid(): string{
+    const er = this.updateFG.get('email').errors?this.updateFG.get('email').errors:{}
+    const errors = Object.keys(er);
+    if(errors.length>0){
+      let errorMessage:any=[];
+      errors.forEach(error => {
+        if(error==='required'){
+          errorMessage.push("Email is Required")
+        }else if(error==='minlength'){
+          errorMessage.push("Email shuolde be at least 10")
+        }else if(error==='maxlength'){
+          errorMessage.push("Email shuolde be less than or equal 20")
+        }
+      })
+      return errorMessage.join(',')
+    }
+    return null;
+  }
+  isphoneValid(): string{
+    const er = this.updateFG.get('phone').errors?this.updateFG.get('phone').errors:{}
+    const errors = Object.keys(er);
+    if(errors.length>0){
+      let errorMessage:any=[];
+      errors.forEach(error => {
+        if(error==='required'){
+          errorMessage.push("Phone is Required")
+        }else if(error==='minlength'){
+          errorMessage.push("Phone shuolde be at least 7")
+        }else if(error==='maxlength'){
+          errorMessage.push("Phone shuolde be less than or equal 15")
+        }
+      })
+      return errorMessage.join(',')
+    }
+    return null;
+  }
+  isaddressValid(): string{
+    const er = this.updateFG.get('address').errors?this.updateFG.get('address').errors:{}
+    const errors = Object.keys(er);
+    if(errors.length>0){
+      let errorMessage:any=[];
+      errors.forEach(error => {
+        if(error==='required'){
+          errorMessage.push("Address is Required")
+        }else if(error==='minlength'){
+          errorMessage.push("Address shuolde be at least 3")
+        }else if(error==='maxlength'){
+          errorMessage.push("Address shuolde be less than or equal 30")
+        }
+      })
+      return errorMessage.join(',')
+    }
+    return null;
   }
 
 }
