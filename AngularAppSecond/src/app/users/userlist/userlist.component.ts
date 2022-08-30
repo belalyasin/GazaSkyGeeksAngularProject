@@ -9,15 +9,15 @@ import { User } from '../userInterface';
 })
 export class UserlistComponent implements OnInit {
 
-  userData:User[]=[];
+  userData:any[];
   constructor(private userService : UserServiceService) { }
 
   onRemove(id:any):void{
     this.userService.removeUser(id);
   }
   ngOnInit(): void {
-    this.userData=this.userService.getUsers();
-    console.log(this.userData)
+    this.userData=this.userService.getalluser();
+    // console.log("usrelis.ts-->",this.userData)
   }
 
 }
