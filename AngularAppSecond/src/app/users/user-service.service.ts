@@ -7,7 +7,7 @@ import { User } from './userInterface';
 export class UserServiceService {
 
   constructor() { }
-  user :User[]=[
+  data:User[]=[
     {
     id:"0",
     name:"Belal Abu Hatab",
@@ -41,27 +41,26 @@ export class UserServiceService {
     address:"Gaza"
   },
 ];
-  getUsers(){
-    return this.user;
+  getalluser():any{
+    return this.data;
   }
   getUserById(index:any):User{
-  return this.user.find(e=>e.id===index);
+  return this.data.find(e=>e.id===index);
 
   }
   addUser(data:any):void{
     var body:User={
-      id:this.user.length+1+"",
+      id:this.data.length+1+"",
       name:data.name,
       birthdate:data.birthdate,
       email:data.email,
       phone:data.phone,
       address:data.address
     }
-    this.user.push(body);
-    console.log(this.user);
+    this.data.push(body);
   }
   updateUser(index:any,obj:any):void{
-    this.user[index]={
+    this.data[index]={
       id:obj.id,
       name:obj.name,
       birthdate:obj.birthdate,
@@ -72,9 +71,7 @@ export class UserServiceService {
   }
 
   removeUser(id:any):void{
-    console.log(id)
-    // id=this.getUserById(id);
-    this.user.splice(id,1);
-    // this.user.splice(id,1);
+    // console.log(id)
+    this.data.splice(id,1);
   }
 }

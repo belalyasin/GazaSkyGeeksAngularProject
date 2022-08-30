@@ -12,7 +12,7 @@ const routes: Routes = [
   //   redirectTo:'viewuser'
   // },
   {
-    path:'',
+    path:'view',
     component:UserlistComponent
   },
   {

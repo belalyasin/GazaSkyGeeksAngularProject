@@ -13,7 +13,6 @@ export class AddUserComponent implements OnInit {
 
   data:any;
   Formuseradd = new FormGroup({
-
     name:new FormControl('',[Validators.required , Validators.minLength(3) , Validators.maxLength(15)]),
     birthdate:new FormControl('',[Validators.required , Validators.minLength(3) , Validators.maxLength(9)]),
     email:new FormControl('',[Validators.required , Validators.minLength(10) , Validators.maxLength(20)]),
@@ -29,9 +28,10 @@ export class AddUserComponent implements OnInit {
 
 
 
-  onsubmit(){
-  this.userService.addUser(this.Formuseradd.value);
-  console.log("YYY",this.Formuseradd.value)
+  onsubmit({value,valid}:{value:any,valid:boolean}){
+    // console.log("Value",value,"Valied",valid)
+  this.userService.addUser(value);
+  // console.log("YYY",this.Formuseradd.value)
     this.Formuseradd.reset();
   }
 

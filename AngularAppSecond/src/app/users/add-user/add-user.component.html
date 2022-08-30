@@ -9,32 +9,33 @@
       <div class="card-body">
       <!-- form start -->
         <form [formGroup]="Formuseradd">
-          <!-- <div class="errors" *ngIf="registrationFG.invalid&&registrationFG.touched">Plse File The Requir</div> -->
 
           <div class="form-group">
             <label >Name</label>
             <input type="text" class="form-control"  placeholder="Enter Your Name" name="name" formControlName="name">
-            <!-- <span *ngIf="Formuseradd.get('name')?.error"></span> -->
+            <span class="errors" *ngIf="Formuseradd.get('name')?.errors?.['required'] && Formuseradd.get('name').invalid && Formuseradd.get('name').touched"><i class="fa-solid fa-exclamation"></i>Please Fill Name</span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Birthdate</label>
             <input type="text" class="form-control" placeholder="Enter Your Birthdate" name="birthdate" formControlName="birthdate">
+            <span class="errors" *ngIf="Formuseradd.get('birthdate')?.errors?.['required'] && Formuseradd.get('birthdate').invalid && Formuseradd.get('birthdate').touched"><i class="fa-solid fa-exclamation"></i>Please Fill Birthdate</span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Email</label>
             <input type="text" class="form-control" placeholder="Enter Your Email" name="email" formControlName="email">
+            <span class="errors" *ngIf="Formuseradd.get('email')?.errors?.['required'] && Formuseradd.get('email').invalid && Formuseradd.get('email').touched"><i class="fa-solid fa-exclamation"></i>Please Fill Email</span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Phone</label>
             <input type="text" class="form-control" placeholder="Enter Your Phone" name="phone" formControlName="phone">
+            <span class="errors" *ngIf="Formuseradd.get('phone')?.errors?.['required'] && Formuseradd.get('phone').invalid && Formuseradd.get('phone').touched"><i class="fa-solid fa-exclamation"></i>Please Fill Phone</span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Address</label>
             <input type="text" class="form-control" placeholder="Enter Your Address" name="address" formControlName="address">
-            <!-- <span *ngIf="registrationFG.invalid"></span> -->
+            <span class="errors" *ngIf="Formuseradd.get('address')?.errors?.['required'] && Formuseradd.get('address').invalid && Formuseradd.get('address').touched"><i class="fa-solid fa-exclamation"></i>Please Fill Address</span>
           </div>
-          <button class="btn btn-primary" type="button" (click)="onsubmit()">Create</button>
-          <!-- <span *ngIf="registrationFG"></span> -->
+          <button class="btn btn-primary" type="submit" [disabled]="Formuseradd.invalid" (click)="onsubmit(Formuseradd)">Create</button>
         </form>
       </div>
     </div>
