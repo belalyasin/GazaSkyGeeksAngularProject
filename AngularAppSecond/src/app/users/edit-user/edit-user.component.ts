@@ -69,7 +69,7 @@ var id= this.router.snapshot.paramMap.get('id');
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
+        if(error==='required' && this.updateFG.get('name').touched){
           errorMessage.push("Name is Required")
         }else if(error==='minlength'){
           errorMessage.push("Name shuolde be at least 3")
@@ -88,7 +88,7 @@ var id= this.router.snapshot.paramMap.get('id');
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
+        if(error==='required' && this.updateFG.get('birthdate').touched){
           errorMessage.push("Birthdate is Required")
         }else if(error==='minlength'){
           errorMessage.push("Birthdate shuolde be at least 3")
@@ -106,7 +106,7 @@ var id= this.router.snapshot.paramMap.get('id');
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
+        if(error==='required' && this.updateFG.get('email').touched){
           errorMessage.push("Email is Required")
         }else if(error==='minlength'){
           errorMessage.push("Email shuolde be at least 10")
@@ -124,7 +124,7 @@ var id= this.router.snapshot.paramMap.get('id');
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
+        if(error==='required' && this.updateFG.get('phone').touched){
           errorMessage.push("Phone is Required")
         }else if(error==='minlength'){
           errorMessage.push("Phone shuolde be at least 7")
@@ -142,7 +142,7 @@ var id= this.router.snapshot.paramMap.get('id');
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
+        if(error==='required' && this.updateFG.get('address').touched){
           errorMessage.push("Address is Required")
         }else if(error==='minlength'){
           errorMessage.push("Address shuolde be at least 3")

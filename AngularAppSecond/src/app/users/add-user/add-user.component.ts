@@ -10,7 +10,7 @@ import { User } from '../userInterface';
 })
 export class AddUserComponent implements OnInit {
 
-
+class:string='form-control';
   data:any;
   Formuseradd = new FormGroup({
     name:new FormControl('',[Validators.required , Validators.minLength(3) , Validators.maxLength(15)]),
@@ -31,15 +31,15 @@ export class AddUserComponent implements OnInit {
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
-          errorMessage.push("Name is Required")
+        if(error==='required' && this.Formuseradd.get('name').touched){
+          errorMessage.push("Name is Required");
         }else if(error==='minlength'){
-          errorMessage.push("Name shuolde be at least 3")
+          errorMessage.push("Name shuolde be at least 3");
         }else if(error==='maxlength'){
-          errorMessage.push("Name shuolde be less than or equal 15")
+          errorMessage.push("Name shuolde be less than or equal 15");
         }
       })
-      return errorMessage.join(',')
+      return errorMessage.join(',');
     }
     return null;
   }
@@ -50,30 +50,31 @@ export class AddUserComponent implements OnInit {
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
-          errorMessage.push("Birthdate is Required")
+        if(error==='required' && this.Formuseradd.get('birthdate').touched){
+          errorMessage.push("Birthdate is Required");
         }else if(error==='minlength'){
-          errorMessage.push("Birthdate shuolde be at least 3")
+          errorMessage.push("Birthdate shuolde be at least 3");
         }else if(error==='maxlength'){
-          errorMessage.push("Birthdate shuolde be less than or equal 9")
+          errorMessage.push("Birthdate shuolde be less than or equal 9");
         }
       })
       return errorMessage.join(',')
     }
     return null;
   }
+
   isemailValid(): string{
     const er = this.Formuseradd.get('email').errors?this.Formuseradd.get('email').errors:{}
     const errors = Object.keys(er);
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
-          errorMessage.push("Email is Required")
+        if(error==='required' && this.Formuseradd.get('email').touched){
+          errorMessage.push("Email is Required");
         }else if(error==='minlength'){
-          errorMessage.push("Email shuolde be at least 10")
+          errorMessage.push("Email shuolde be at least 10");
         }else if(error==='maxlength'){
-          errorMessage.push("Email shuolde be less than or equal 20")
+          errorMessage.push("Email shuolde be less than or equal 20");
         }
       })
       return errorMessage.join(',')
@@ -86,7 +87,7 @@ export class AddUserComponent implements OnInit {
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
+        if(error==='required' && this.Formuseradd.get('phone').touched){
           errorMessage.push("Phone is Required")
         }else if(error==='minlength'){
           errorMessage.push("Phone shuolde be at least 7")
@@ -104,7 +105,8 @@ export class AddUserComponent implements OnInit {
     if(errors.length>0){
       let errorMessage:any=[];
       errors.forEach(error => {
-        if(error==='required'){
+        this.class;
+        if(error==='required' && this.Formuseradd.get('address').touched){
           errorMessage.push("Address is Required")
         }else if(error==='minlength'){
           errorMessage.push("Address shuolde be at least 3")
