@@ -1,0 +1,62 @@
+<div class="col-md-12">
+  <div *ngIf="isLodding" class="d-flex justify-content-center">
+    <!-- <div class="spinner-border" role="status"> -->
+      <!-- <span class="sr-only">Loading...</span> -->
+      <img src="/assets/12.gif">
+    <!-- </div> -->
+  </div>
+  <div *ngIf="!isLodding && user?.length > 0" class="card">
+    <div class="card-header">
+      <h3 class="card-title">User Data Table</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table class="table table-bordered" style="text-align: center;">
+        <thead>
+          <tr>
+            <th>avatar</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>actions
+              <button class="btn btn-success" routerLink="/users/add">+</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of user; let i=index;">
+            <td><img src="{{user.avatar}}" width="50"></td>
+            <td>{{user.id}}</td>
+            <td>{{user.first_name}} {{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              <a class="btn btn-warning btn-xs" [routerLink]="['/users/edit',user.id]">Edit</a>
+              <button class="btn btn-danger btn-xs" (click)="onRemove(user.id)">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <nav aria-label="Page navigation example" *ngIf="!isLodding && user?.length > 0">
+        <ul class="pagination justify-content-center">
+          <li [ngClass]="page===1 ? 'page-item disabled' : 'page-item pg-dark'">
+            <button [disabled]="page===1" class="page-link" aria-label="Previous" (click)="previous()">
+              <span aria-hidden="true">&laquo;</span>
+            </button>
+          </li>
+          <li class="page-item" [class.disabled]="page===pg" *ngFor="let pg of total_pagesAr">
+            <button class="page-link" [disabled]="page===pg" (click)="goToPage(pg)">{{pg}}</button>
+          </li>
+          <li [ngClass]="page===total_pages ? 'page-item disabled' : 'page-item'">
+            <button [class.disabled]="page===total_pages" class="page-link" aria-label="Next" [disabled]="page===total_pages" (click)="next()">
+              <span aria-hidden="true">&raquo;</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>

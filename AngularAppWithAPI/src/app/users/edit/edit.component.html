@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="col-md-10">
+    <!-- general form elements -->
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Update User</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+      <!-- form start -->
+        <form [formGroup]="Formupdateuser">
+
+          <div class="form-group">
+            <label >First Name</label>
+            <input type="text" [ngClass]="isNameValid() ? 'form-control is-invalid':'form-control'"  placeholder="Enter Your First Name" name="first_name" formControlName="first_name">
+            <span class="invalid-feedback" *ngIf="isNameValid() && Formupdateuser.get('first_name')?.touched"><i class="fa-solid fa-exclamation"></i>{{isNameValid()}}</span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Last Name</label>
+            <input type="text" [ngClass]="isLastNameValid() ? 'form-control is-invalid':'form-control'" placeholder="Enter Your Birthdate" name="last_name" formControlName="last_name">
+            <span class="invalid-feedback" *ngIf="isLastNameValid() && Formupdateuser.get('last_name')?.touched"><i class="fa-solid fa-exclamation"></i>{{isLastNameValid()}}</span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Email</label>
+            <input type="text" [ngClass]="isemailValid() ? 'form-control is-invalid':'form-control'" placeholder="Enter Your Email" name="email" formControlName="email">
+            <span class="invalid-feedback" *ngIf="isemailValid() && Formupdateuser.get('email')?.touched"><i class="fa-solid fa-exclamation"></i>{{isemailValid()}}</span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Avatar</label>
+            <input type="text" [ngClass]="isavatarValid() ? 'form-control is-invalid':'form-control'" placeholder="Enter Your avatar" name="avatar" formControlName="avatar">
+            <span class="invalid-feedback" *ngIf="isavatarValid() && Formupdateuser.get('avatar')?.touched"><i class="fa-solid fa-exclamation"></i>{{isavatarValid()}}</span>
+          </div>
+          <button class="btn btn-primary" type="submit" [disabled]="Formupdateuser.invalid" (click)="onupdate(Formupdateuser,Formupdateuser)">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
