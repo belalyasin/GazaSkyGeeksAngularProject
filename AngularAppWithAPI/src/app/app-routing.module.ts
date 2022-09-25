@@ -4,6 +4,11 @@ import { UsersModule } from './users/users.module';
 
 const routes: Routes = [
   {
+    path:'',
+    pathMatch:'full',
+    redirectTo:'',
+  },
+  {
     path:'users',
     loadChildren:()=>import('./users/users.module').then(m => UsersModule)
   }

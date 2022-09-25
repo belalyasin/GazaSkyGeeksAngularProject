@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { UserServiceService } from '../user-service.service';
-import { Subscription } from 'rxjs';
+import { concatMap, from,Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -14,9 +14,11 @@ export class ListComponent implements OnInit,OnDestroy {
   isLodding:boolean=false;
   subscription: Subscription = new Subscription;
   total_pages:number;
+  total:number;
   total_pagesAr:number[];
   perPage:number=4;
   page:number;
+  itemChecked:boolean[]=[];
   constructor(private userService : UserServiceService) { }
 
 
@@ -32,7 +34,9 @@ export class ListComponent implements OnInit,OnDestroy {
         console.log('user' + this.user);
         this.page=res.page;
         this.total_pages=res.total_pages;
-        this.total_pagesAr=Array.from(new Array(this.total_pages).keys(),(item)=>item+1)
+        this.total=res.total;
+        this.total_pagesAr = Array.from(new Array(this.total_pages).keys(),(item)=>item+1);
+        this.itemChecked = Array.from(new Array(res.data.length).keys(),(item)=>false);
         this.isLodding = false;
       },
       error=>{
@@ -66,6 +70,36 @@ export class ListComponent implements OnInit,OnDestroy {
   }
   goToPage(page:number):void{
     this.getUser(page);
+  }
+
+  toggleCheckboxAll(value:boolean):void{
+    this.itemChecked = Array.from(new Array(this.user.length).keys(),(item)=>value);
+  }
+  toggleCheckbox(value:boolean , id:number):void{
+    this.itemChecked[id]=value;
+  }
+
+  deleteItemSelected():void{
+    let checked:any = [];
+    this.itemChecked.forEach((value,i)=>{
+      if(value){
+        checked.push(this.user[i].id);
+      }
+    })
+    var obj = from(checked);
+    obj.pipe(
+      concatMap((value:any)=>{
+        return this.userService.delete(value);
+      })
+      ).subscribe(
+        res=>{
+        console.log(res)
+        this.itemChecked=[res];
+      },
+      err=>{
+        console.error(err);
+      }
+    )
   }
 
 }

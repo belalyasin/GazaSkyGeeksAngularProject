@@ -1,1 +1,56 @@
-<p>details works!</p>
+<div *ngIf="isLodding" class="d-flex justify-content-center">
+  <!-- <div class="spinner-border" role="status"> -->
+    <!-- <span class="sr-only">Loading...</span> -->
+    <img src="/assets/12-unscreen.gif">
+  <!-- </div> -->
+</div>
+<section *ngIf="!isLodding && user" class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>User Detail</h1>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<section *ngIf="!isLodding && user" class="content">
+  <!-- Default box -->
+  <div class="card card-solid">
+    <div class="card-body pb-0">
+      <div class="row" style="justify-content: center;">
+        <div class="col-md-8 d-flex align-items-stretch flex-column mb-10" style="align-items: center;justify-content: center;">
+          <div class="card bg-light d-flex flex-fill">
+            <div class="card-header text-muted border-bottom-0">
+              <b><i class="fas fa-user"></i> : </b>  {{user.id}}
+            </div>
+            <div class="card-body pt-4">
+              <div class="row">
+                <div class="col-7 al-s">
+                  <h2 class="lead"><b class="text-muted text-xs">Name : </b><b>{{user.first_name}} {{user.last_name}}</b></h2>
+                  <p class="text-muted text-sm"><b>Email : </b> {{user.email}} </p>
+                </div>
+                <div class="col-5 text-center">
+                  <img src="{{user.avatar}}" alt="user-avatar" class="img-circle img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="card-footer pb-05">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer pb-05">
+      <div class="text-right">
+        <a routerLink="/users/list" class="btn btn-sm btn-secondary ">
+          Back <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </a>
+      </div>
+    </div>
+    <!-- /.card-footer -->
+  </div>
+  <!-- /.card -->
+
+</section>
