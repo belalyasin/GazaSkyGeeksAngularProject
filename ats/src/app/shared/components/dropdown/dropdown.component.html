@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label>{{label}}</label>
+  <select class="form-control select2" style="width: 100%;" (change)="onSelecet($any($event))">
+    <option selected="selected" disabled>Slecte{{label}}</option>
+    <option *ngFor="let item of list; let i= index" value="{{item.id}}">{{item.name}}</option>
+  </select>
+</div>

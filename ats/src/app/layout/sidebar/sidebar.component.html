@@ -1,0 +1,311 @@
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link">
+        <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+          <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-sidebar">
+                <i class="fas fa-search fa-fw"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['dashboard']" routerLinkActive="active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['dashboard/jobseekers-statics']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Jobseekers Statics</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['dashboard/jobs-statics']" routerLinkActive="active"  class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Jobs Statics</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['dashboard/applications-statics']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Applications Statics</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['dashboard/users-statics']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Users Statics</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['dashboard/folders-statics']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Folders Statics</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['users']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Users
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="right badge badge-danger">6</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['users/list']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['users/add']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['users/edit']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Edit</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['users/details']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Details</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['jobseekers']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                  Jobseekers
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['jobseekers/profile']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Profile</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['jobseekers/jobs']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Jops</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['jobs']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                  Jops
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['jobs/list']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List Jobs</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['jobs/add']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Job</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['companies']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon fas fa-tree"></i>
+                <p>
+                  Companies
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['companies/list']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Companies List</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['companies/add']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Company</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['companies/jobs']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Companies Jobs</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['companies/details']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Companies	Details</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['companies/profile']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Companies Profile</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['search']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Search
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['search/list']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Search list</p>
+
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['search/profile']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Search Profile</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['folders']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  Folders
+                  <!-- <span class="badge badge-info right">2</span> -->
+                </p>
+                <i class="fas fa-angle-left right"></i>
+
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['folders/list']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Folders List</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['folders/add']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Folder</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['folders/details']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Folder Details</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- <li class="nav-header">EXAMPLES</li> -->
+            <li class="nav-item">
+              <a [routerLink]="['settings']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Settings
+                </p>
+                <i class="fas fa-angle-left right"></i>
+
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['settings/change-password']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Change Password</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['settings/dropdown-values']" routerLinkActive="active"  class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dropdown Values</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['interviews']" routerLinkActive="active" class="nav-link">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                  Interviews
+                </p>
+                <i class="fas fa-angle-left right"></i>
+
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a [routerLink]="['interviews/list']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List of Interviews</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['interviews/details']" routerLinkActive="active" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Interviews Details</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>

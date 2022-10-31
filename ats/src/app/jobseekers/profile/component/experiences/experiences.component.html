@@ -1,0 +1,83 @@
+<app-experience-add *ngIf="showAddFormStatus"></app-experience-add>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Educations</h3>
+
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 350px;">
+            <button class="btn" (click)="toggleAddForm()">
+                <i class="fas fa-plus"></i>
+            </button>
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Major</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>University</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Still Studying</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Computer Science</td>
+                <td>Palestine</td>
+                <td>Gaza</td>
+                <td>Gaza University</td>
+                <td>01-09-2018</td>
+                <td>01-09-2022</td>
+                <td>No</td>
+                <td>
+                    <button class="btn btn-xs">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-xs">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Computer Science</td>
+                <td>Palestine</td>
+                <td>Gaza</td>
+                <td>Gaza University</td>
+                <td>01-09-2022</td>
+                <td>01-09-2025</td>
+                <td>Yes</td>
+                <td>
+                    <button class="btn btn-xs">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-xs">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
