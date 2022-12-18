@@ -78,6 +78,9 @@ export class DropdownService {
       {id: 2,name:'Al-Azhar University',perantId:1},
       {id: 3,name:'Al-Aqsa University',perantId:1},
       {id: 4,name:'Al-Najah University',perantId:2},
+      {id: 5,name:'Berzite University',perantId:3},
+      {id: 6,name:'Al-Israa University',perantId:4},
+      {id: 7,name:'Al-Batra University',perantId:5},
     ];
     return of(dropdowns);
   }

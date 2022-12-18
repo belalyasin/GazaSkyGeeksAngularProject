@@ -26,9 +26,6 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.educations=[
-      // { city:1, country:1, endDate:new Date(),id:1,major:1,presentStatus:'false',startDate:new Date(),university:"" }
-    ]
   }
 
   onProfileUpdate(data: any, type: string): void {
