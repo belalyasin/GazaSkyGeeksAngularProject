@@ -19,20 +19,12 @@ export class EducationAddComponent implements OnInit {
   @Output() onUpdated : EventEmitter<Education[]>=new EventEmitter<Education[]>;
 
   formGrop : FormGroup;
-  ids:any;
+
   constructor(private dropdown:DropdownService,private educationsService:EducationsService ,private fg:FormBuilder) { }
 
   ngOnInit(): void {
     this.majorList = this.dropdown.getMajors();
     this.countryList = this.dropdown.getCountries();
-    this.ids= this.countryList.map(i=>i.id);
-    console.log(this.countryList)
-    console.log(this.ids,'idC')
-    this.cityList = this.dropdown.getCities(this.ids);
-    console.log(this.cityList,'cc')
-    this.universityList = this.dropdown.getUniversities(this.ids)
-    console.log(this.universityList,'uu')
-
     this.formGrop = this.fg.group({
       major:[this.formData?.major,Validators.required],
       country:[this.formData?.country,Validators.required],
@@ -55,11 +47,13 @@ export class EducationAddComponent implements OnInit {
     }else if(type === 'country'){
       this.formGrop.get('country').setValue(item.id)
       this.cityList = this.dropdown.getCities(item.id)
-      console.log(this.dropdown.getCities(item.id))
-      console.log(this.formGrop.get('city'))
+      this.formGrop.get('city')?.setValue(item.id)
+      console.log(this.dropdown.getCities(item.id),'city')
     }else if(type === 'city'){
-      this.formGrop.get('city').setValue(item.id)
-      this.cityList = this.dropdown.getUniversities(item.id)
+      this.formGrop.get('city')?.setValue(item.id)
+      // this.cityList = this.dropdown.getCities(item.id)
+      this.universityList = this.dropdown.getUniversities(item.id)
+      this.formGrop.get('university').setValue(item.id)
     }else if(type === 'university'){
       this.formGrop.get('university').setValue(item.id)
     }
@@ -67,8 +61,8 @@ export class EducationAddComponent implements OnInit {
 
   onSubmit():void{
     console.log(this.formGrop.value)
-    // this.educationsService.add(this.formGrop.value);
     if(this.formGrop.valid){
+      this.educationsService.add(this.formGrop.value);
       // const formValue = this.formGrop.value;
     }else{
       this.formGrop.markAllAsTouched;

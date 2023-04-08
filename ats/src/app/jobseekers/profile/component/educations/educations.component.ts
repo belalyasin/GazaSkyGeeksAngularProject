@@ -16,16 +16,11 @@ export class EducationsComponent implements OnInit {
   formData: any=null;
   formType: number = 1;
   selecteIndex = 0;
-  dropdownT:any = this.dropdown.getMajors()
-    name:any[]=[]
 
   constructor(private educationsService :EducationsService,private dropdown :DropdownService) { }
 
   ngOnInit(): void {
     this.data = this.educationsService.getAll();
-    // this.name = this.educationsService.name
-    console.log(this.dropdown.getMajors(),'------')
-    // console.log(this.educationsService.m[0].name)
   }
 
   toggleAddForm(): void {
@@ -40,7 +35,7 @@ export class EducationsComponent implements OnInit {
       this.data.push(formData);
     }else{
       //edit
-      this.data[this.selecteIndex]=formData;
+      formData=this.data[this.selecteIndex];
       this.onUpdated.emit(formData);
 
     }
@@ -53,9 +48,9 @@ export class EducationsComponent implements OnInit {
       setTimeout(() => {
       this.selecteIndex=index;
       this.formData = this.data[index];
+      console.log(this.formData)
       this.showAddFormStatus=true;
       }, 100);
-
     }
 
     onDelete(index:number):void{

@@ -42,12 +42,12 @@
           <tbody>
             <tr *ngFor="let item of data; let i=index;">
               <td>{{item.id}}</td>
-              <td>{{item.major }}</td>
-              <td>{{item.country}}</td>
-              <td>{{item.city}}</td>
-              <td>{{item.university}}</td>
-              <td>{{item.startDate?.toLocaleDateString()}}</td>
-              <td>{{item.endDate?.toLocaleDateString()}}</td>
+              <td>{{item.majorId }}</td>
+              <td>{{item.countryId}}</td>
+              <td>{{item.cityId}}</td>
+              <td>{{item.universityId}}</td>
+              <td>{{item.startDate}}</td>
+              <td>{{item.endDate}}</td>
               <td>{{item.presentStatus}}</td>
               <td>
                 <button class="btn  btn-sm" (click)="onEdite(i)">

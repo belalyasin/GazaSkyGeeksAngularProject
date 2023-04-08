@@ -33,33 +33,33 @@ export class EducationsService {
   data:Education[]=[
     {
       id:1,
-      major:this.dropDown.getMajors().find(x=>x.id==2).name,
-      country:this.dropDown.getCountries().find(x=>x.id==1).name,
-      city:this.dropDown.getCities(1).find(x=>x.id==1).name,
-      university:this.dropDown.getUniversities(1).find(x=>x.id==3).name,
-      startDate:new Date("2022-03-25"),
-      endDate:new Date("2022-10-15"),
-      presentStatus:'No'
+      majorId:2,
+      countryId:1,
+      cityId:1,
+      universityId:3,
+      startDate:"2022-03-25",
+      endDate:"2022-10-15",
+      presentStatus:false
     },
     {
       id:2,
-      major:this.dropDown.getMajors().find(x=>x.id==1).name,
-      country:this.dropDown.getCountries().find(x=>x.id==2).name,
-      city:this.dropDown.getCities(2).find(x=>x.id==4).name,
-      university:this.dropDown.getUniversities(2).find(x=>x.id==4).name,
-      startDate:new Date("2022-03-25"),
-      endDate:new Date("2022-10-15"),
-      presentStatus:'No'
+      majorId:1,
+      countryId:2,
+      cityId:4,
+      universityId:5,
+      startDate:"2022-03-25",
+      endDate:"2022-10-15",
+      presentStatus:true
     },
     {
       id:3,
-      major:this.dropDown.getMajors().find(x=>x.id==2).name,
-      country:this.dropDown.getCountries().find(x=>x.id==1).name,
-      city:this.dropDown.getCities(1).find(x=>x.id==1).name,
-      university:this.dropDown.getUniversities(1).find(x=>x.id==1).name,
-      startDate:new Date("2022-03-25"),
-      endDate:new Date("2022-10-15"),
-      presentStatus:'No'
+      majorId:2,
+      countryId:1,
+      cityId:1,
+      universityId:1,
+      startDate:"2022-03-25",
+      endDate:"2022-10-15",
+      presentStatus:false
     }
   ]
 
@@ -71,24 +71,25 @@ export class EducationsService {
   }
   add(data:any){
     var body:Education={
-      id:data.length+1,
-      major:data.major,
-      country:data.country,
-      city:data.city,
-      university:data.university,
+      id:this.data.length+1,
+      majorId:data.major,
+      countryId:data.country,
+      cityId:data.city,
+      universityId:data.university,
       startDate:data.startDate,
       endDate:data.endDate,
       presentStatus:data.presentStatus
     }
+    console.log(body)
     this.data.push(body);
   }
   update(index:any,obj:any){
     this.data[index]={
       id:obj.id,
-      major:obj.major,
-      country:obj.country,
-      city:obj.city,
-      university:obj.university,
+      majorId:obj.major,
+      countryId:obj.country,
+      cityId:obj.city,
+      universityId:obj.university,
       startDate:obj.startDate,
       endDate:obj.endDate,
       presentStatus:obj.presentStatus
